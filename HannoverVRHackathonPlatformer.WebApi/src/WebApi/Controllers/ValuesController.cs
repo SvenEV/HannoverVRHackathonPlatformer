@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WebApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Post([FromBody]string value)
         {
-            var timeSpan = JsonConvert.DeserializeObject<TimeSpan>(value);
+            var timeSpan = TimeSpan.FromMilliseconds(double.Parse(value));
             _scores.Add(timeSpan);
         }
 
