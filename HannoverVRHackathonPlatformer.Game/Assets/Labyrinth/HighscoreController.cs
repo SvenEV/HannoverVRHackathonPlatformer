@@ -11,21 +11,18 @@ public class HighscoreManager
 
     public static void UploadScore(TimeSpan score)
     {
-        WebScript.Current.Post(_url, score.TotalMilliseconds.ToString(), PostCompleted);
+        WebScript.Current.Post(_url, score.TotalMilliseconds.ToString(), (www) => { });
     }
 
-    private static void PostCompleted(WWW www)
-    {
-
-    }
 
     public static void UpdateScores()
     {
         WebScript.Current.Get(_url, GetCompleted);
     }
 
-    private static void GetCompleted(WWW www, JSONNode json)
+    private static void GetCompleted(WWW www, string data)
     {
-        ///do something with json
+        ///do something with json        
+        
     }
 }

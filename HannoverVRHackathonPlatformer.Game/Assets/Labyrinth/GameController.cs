@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     {
         isGameRunning = false;
         GetComponent<AudioSource>().PlayOneShot(FinishSound);
+        HighscoreManager.UploadScore(time);
     }
 
     public void OnCoinCollected(Collider coin, Collider player)

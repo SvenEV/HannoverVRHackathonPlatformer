@@ -15,9 +15,9 @@ namespace WebApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public JsonResult Get()
+        public IActionResult Get()
         {
-            return Json(_scores);
+            return Ok(string.Join(",", _scores.OrderBy(s => s).Select(s => s.TotalMilliseconds)));
         }
 
 

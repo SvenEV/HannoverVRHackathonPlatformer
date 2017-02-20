@@ -23,7 +23,7 @@ public class WebScript : MonoBehaviour
     }
 
     public delegate void PostCompletedEventHandler(WWW www);
-    public delegate void GetCompletedEventHandler(WWW www, JSONNode json);
+    public delegate void GetCompletedEventHandler(WWW www, string data);
 
     /// <summary>
     /// Retrieves JSON data from the specified URL.
@@ -38,7 +38,7 @@ public class WebScript : MonoBehaviour
         var www = new WWW(url);
         StartCoroutine(GetAsync(www, callback));
     }
-    
+
     /// <summary>
     /// Submits JSON data to the specified URL.
     /// </summary>
@@ -51,7 +51,7 @@ public class WebScript : MonoBehaviour
     public void Post(string url, string data, PostCompletedEventHandler callback)
     {
         var bytes = Encoding.UTF8.GetBytes(data.ToString());
-        var headers = new Dictionary<string, string>();
+        var headers = new Dictionary<string, string> { { "content-type", "application/json" } };
         var www = new WWW(url, bytes, headers);
         StartCoroutine(PostAsync(www, callback));
     }
@@ -60,10 +60,8 @@ public class WebScript : MonoBehaviour
     {
         yield return www;
 
-        var json = JSON.Parse(www.text);
-
         if (callback != null)
-            callback(www, json);
+            callback(www, www.text);
     }
 
     private IEnumerator PostAsync(WWW www, PostCompletedEventHandler callback)
