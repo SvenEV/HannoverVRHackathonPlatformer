@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         isGameRunning = false;
         GetComponent<AudioSource>().PlayOneShot(FinishSound);
     }
-
+    
     public void OnCoinCollected(Collider coin, Collider player)
     {
         time -= TimeSpan.FromSeconds(5);
