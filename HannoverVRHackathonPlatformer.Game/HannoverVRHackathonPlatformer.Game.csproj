@@ -84,11 +84,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Labyrinth\CoinSpinner.cs" />
-    <Compile Include="Assets\Labyrinth\GameController.cs" />
-    <Compile Include="Assets\Labyrinth\HighscoreManager.cs" />
-    <Compile Include="Assets\Labyrinth\TriggerEvents.cs" />
-    <Compile Include="Assets\Labyrinth\WebScript.cs" />
+    <Compile Include="Assets\CoinSpinner.cs" />
+    <Compile Include="Assets\GameController.cs" />
+    <Compile Include="Assets\HighscoreManager.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -97,6 +95,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\TriggerEvents.cs" />
     <Compile Include="Assets\VISR\Scripts\Aimpoint.cs" />
     <Compile Include="Assets\VISR\Scripts\Configurator\BuyButton.cs" />
     <Compile Include="Assets\VISR\Scripts\Configurator\Configuration.cs" />
@@ -109,12 +108,12 @@
     <Compile Include="Assets\VISR\Scripts\VisrCamera.cs" />
     <Compile Include="Assets\VISR\Scripts\VisrSdk.cs" />
     <Compile Include="Assets\VISR\Scripts\VisrSdkTrackingDriver.cs" />
+    <Compile Include="Assets\WebScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetStore\NatureStarterKit\info.txt" />
-    <None Include="Assets\AssetStore\laxer tree pkg\README.txt" />
-    <None Include="Assets\Labyrinth\GvrUIOverlay.shader" />
-    <None Include="Assets\Labyrinth\GvrUnityCompatibility.cginc" />
+    <None Include="Assets\GvrUIOverlay.shader" />
+    <None Include="Assets\GvrUnityCompatibility.cginc" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
