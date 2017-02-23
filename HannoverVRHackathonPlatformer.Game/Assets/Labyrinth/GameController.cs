@@ -1,17 +1,24 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(HighscoreManager))]
 public class GameController : MonoBehaviour
 {
     private TimeSpan time;
     private bool isGameRunning = true;
+    private HighscoreManager highscoreManager;
 
     // reference to the UI text component
     public Text timeText;
+    public AudioClip coinCollectSound;
+    public AudioClip finishSound;
 
-    public AudioClip CoinCollectSound;
-    public AudioClip FinishSound;
+    private void Start()
+    {
+        highscoreManager = GetComponent<HighscoreManager>();
+    }
 
     private void Update()
     {
@@ -27,9 +34,16 @@ public class GameController : MonoBehaviour
     public void OnFinish()
     {
         isGameRunning = false;
-        GetComponent<AudioSource>().PlayOneShot(FinishSound);
+        GetComponent<AudioSource>().PlayOneShot(finishSound);
+        timeText.text += "\r\nsaving...";
+        highscoreManager.PostScore(time, OnScorePosted);
     }
-    
+
+    private void OnScorePosted(WWW www)
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void OnCoinCollected(Collider coin, Collider player)
     {
         time -= TimeSpan.FromSeconds(5);
@@ -37,7 +51,7 @@ public class GameController : MonoBehaviour
         if (time < TimeSpan.Zero)
             time = TimeSpan.Zero;
 
-        GetComponent<AudioSource>().PlayOneShot(CoinCollectSound);
+        GetComponent<AudioSource>().PlayOneShot(coinCollectSound);
 
         Destroy(coin.gameObject);
     }

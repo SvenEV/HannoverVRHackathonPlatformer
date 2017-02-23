@@ -86,7 +86,9 @@
   <ItemGroup>
     <Compile Include="Assets\Labyrinth\CoinSpinner.cs" />
     <Compile Include="Assets\Labyrinth\GameController.cs" />
+    <Compile Include="Assets\Labyrinth\HighscoreManager.cs" />
     <Compile Include="Assets\Labyrinth\TriggerEvents.cs" />
+    <Compile Include="Assets\Labyrinth\WebScript.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -109,7 +111,10 @@
     <Compile Include="Assets\VISR\Scripts\VisrSdkTrackingDriver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AssetStore\NatureStarterKit\info.txt" />
     <None Include="Assets\AssetStore\laxer tree pkg\README.txt" />
+    <None Include="Assets\Labyrinth\GvrUIOverlay.shader" />
+    <None Include="Assets\Labyrinth\GvrUnityCompatibility.cginc" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
