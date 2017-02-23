@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(string.Join(",", _scores.Select(s => s.Milliseconds.ToString())));
+            return Ok(string.Join(",", _scores.Select(s => s.TotalMilliseconds.ToString())));
         }
 
 
