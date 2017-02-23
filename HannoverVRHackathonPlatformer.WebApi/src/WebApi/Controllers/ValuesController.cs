@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace WebApi.Controllers
 {
@@ -12,9 +13,9 @@ namespace WebApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public JsonResult Get()
+        public IActionResult Get()
         {
-            return Json(_scores);
+            return Ok(string.Join(",", _scores.Select(s => s.Milliseconds.ToString())));
         }
 
 
@@ -22,7 +23,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Post([FromBody]string value)
         {
-            var timeSpan = JsonConvert.DeserializeObject<TimeSpan>(value);
+            var timeSpan = TimeSpan.FromMilliseconds(double.Parse(value));
             _scores.Add(timeSpan);
         }
 
