@@ -39,7 +39,7 @@ namespace VisrSdk
             if (!Application.isPlaying)
                 return;
 
-            Transform node = transform.FindChild(nodeName);
+            Transform node = transform.Find(nodeName);
             if (node == null)
             {
                 Debug.LogError("A tracking node with the name " + nodeName + " was not found");

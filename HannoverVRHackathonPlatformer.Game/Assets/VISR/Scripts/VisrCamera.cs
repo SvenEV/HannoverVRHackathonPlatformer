@@ -75,15 +75,15 @@ namespace VisrSdk
         {
             if (DisableStereoInEditor)
             {
-                transform.FindChild("L").gameObject.SetActive(false);
-                transform.FindChild("R").gameObject.SetActive(false);
-                transform.FindChild("Preview").gameObject.SetActive(true);
+                transform.Find("L").gameObject.SetActive(false);
+                transform.Find("R").gameObject.SetActive(false);
+                transform.Find("Preview").gameObject.SetActive(true);
             }
             else
             {
-                transform.FindChild("L").gameObject.SetActive(true);
-                transform.FindChild("R").gameObject.SetActive(true);
-                transform.FindChild("Preview").gameObject.SetActive(false);
+                transform.Find("L").gameObject.SetActive(true);
+                transform.Find("R").gameObject.SetActive(true);
+                transform.Find("Preview").gameObject.SetActive(false);
             }
         }
 

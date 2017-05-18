@@ -3,7 +3,15 @@ guid: 29a064010e21e4f46b0e4a95c5915d86
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: container_001
+    400000: //RootNode
+    400002: container_001
+    2300000: container_001
+    3300000: container_001
     4300000: container_001
+    7400000: Default Take
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
@@ -14,6 +22,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
