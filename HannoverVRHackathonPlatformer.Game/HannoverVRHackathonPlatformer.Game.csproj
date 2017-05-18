@@ -100,16 +100,11 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\TriggerEvents.cs" />
     <Compile Include="Assets\VISR\Scripts\Aimpoint.cs" />
-    <Compile Include="Assets\VISR\Scripts\Configurator\BuyButton.cs" />
-    <Compile Include="Assets\VISR\Scripts\Configurator\Configuration.cs" />
-    <Compile Include="Assets\VISR\Scripts\Configurator\ConfigurationEditorMonitor.cs" />
-    <Compile Include="Assets\VISR\Scripts\Configurator\LaunchAppButton.cs" />
     <Compile Include="Assets\VISR\Scripts\LensCorrection.cs" />
-    <Compile Include="Assets\VISR\Scripts\LookReciever.cs" />
-    <Compile Include="Assets\VISR\Scripts\TrackingDrivers\VisrSdkTrackingDriverUApp.cs" />
+    <Compile Include="Assets\VISR\Scripts\LookReceiver.cs" />
+    <Compile Include="Assets\VISR\Scripts\TrackingNode.cs" />
     <Compile Include="Assets\VISR\Scripts\TrackingSystem.cs" />
     <Compile Include="Assets\VISR\Scripts\VisrCamera.cs" />
-    <Compile Include="Assets\VISR\Scripts\VisrSdk.cs" />
     <Compile Include="Assets\VISR\Scripts\VisrSdkTrackingDriver.cs" />
     <Compile Include="Assets\WebScript.cs" />
   </ItemGroup>

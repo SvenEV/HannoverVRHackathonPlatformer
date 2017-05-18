@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public enum LookState
 {
@@ -9,19 +8,20 @@ public enum LookState
     Count
 }
 
-public class LookReciever : MonoBehaviour {
+public class LookReciever : MonoBehaviour
+{
     public LookState CurrentState = LookState.None;
 
-    bool lastButtonState = false;
+    private bool _lastButtonState = false;
 
-	public void LookRecieved(RaycastHit lookRay, bool actionButton)
+    public void LookRecieved(RaycastHit lookRay, bool actionButton)
     {
-        if(lastButtonState != actionButton)
+        if (_lastButtonState != actionButton)
         {
             SendMessage("OnLookStateAction", lookRay, SendMessageOptions.DontRequireReceiver);
         }
 
         SendMessage("OnLookStateChanged", CurrentState, SendMessageOptions.DontRequireReceiver);
-        lastButtonState = actionButton;
+        _lastButtonState = actionButton;
     }
 }

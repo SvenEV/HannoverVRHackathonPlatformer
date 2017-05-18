@@ -61,17 +61,14 @@ namespace VisrSdk
 
         void Start()
         {
-
-
-            //ensure we can never have stereo disabled on the target device
+            // ensure we can never have stereo disabled on the target device
 #if !UNITY_EDITOR
             DisableStereoInEditor = true;
 #endif
         }
 
 #if UNITY_EDITOR
-
-        void handleStereoOption()
+        private void HandleStereoOption()
         {
             if (DisableStereoInEditor)
             {
@@ -86,13 +83,12 @@ namespace VisrSdk
                 transform.Find("Preview").gameObject.SetActive(false);
             }
         }
-
 #endif
 
-        void LateUpdate()
+        private void LateUpdate()
         {
 #if UNITY_EDITOR
-            handleStereoOption();
+            HandleStereoOption();
 #endif
             if(TrackingNodeName != null && Application.isPlaying)
             {

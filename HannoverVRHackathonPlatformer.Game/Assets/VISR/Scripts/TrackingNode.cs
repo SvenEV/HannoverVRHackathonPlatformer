@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 namespace VisrSdk
-{    
+{
     public class TrackingNode
     {
         public Quaternion Rotation = Quaternion.Euler(0,0,0);

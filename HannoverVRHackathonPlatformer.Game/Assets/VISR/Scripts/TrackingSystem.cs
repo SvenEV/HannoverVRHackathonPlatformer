@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace VisrSdk
 {
     public class TrackingSystem : MonoBehaviour
     {
-        static TrackingSystem instance = null;
+        private static TrackingSystem instance = null;
+
         public static TrackingSystem Instance
         {
             get
@@ -22,7 +22,7 @@ namespace VisrSdk
             }
         }
 
-        void Start()
+        private void Start()
         {
             if (instance != null)
             {
@@ -39,7 +39,7 @@ namespace VisrSdk
             if (!Application.isPlaying)
                 return;
 
-            Transform node = transform.Find(nodeName);
+            var node = transform.Find(nodeName);
             if (node == null)
             {
                 Debug.LogError("A tracking node with the name " + nodeName + " was not found");

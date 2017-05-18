@@ -7,5 +7,4 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/OutdoorScene.unity
-  - enabled: 1
-    path: Assets/VISR/DeviceConfig.unity
+    guid: 4178256ce16f08d45be2eca6181b366c

@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 namespace VisrSdk
 {
     public abstract class SdkTrackingDriver
     {
-
-#if UNITY_WSA_8_1
-        private static SdkTrackingDriver instance = new VisrSdkTrackingDriverUApp();
-#else
-        private static SdkTrackingDriver instance = new SdkTrackingDriverDefault();
-#endif
-
-        public static SdkTrackingDriver Instance
-        {
-            get { return instance; }
-        }
+        public static SdkTrackingDriver Instance = new SdkTrackingDriverDefault();
 
         public abstract void Init();
         public abstract void UpdateTracking();
@@ -34,9 +23,9 @@ namespace VisrSdk
             //editor gyro emulation
             Vector3 lastMouse = Vector3.zero;
 
-            void updateHeadTracking()
+            private void UpdateHeadTracking()
             {
-                TrackingNode head = trackingNodes[TrackingNode.HEAD];
+                var head = trackingNodes[TrackingNode.HEAD];
 
                 if (Application.isEditor)
                 {
@@ -48,7 +37,7 @@ namespace VisrSdk
                     if (!Input.GetMouseButton(1))
                         return;
 
-                    Vector3 deltaMouse = Input.mousePosition - lastMouse;
+                    var deltaMouse = Input.mousePosition - lastMouse;
                     lastMouse = Input.mousePosition;
 
                     head.Rotation = head.Rotation
@@ -59,9 +48,9 @@ namespace VisrSdk
                     return;
                 }
 
-                Vector3 screenRotation = new Vector3(-90, 0, 90);
-                Vector3 rotationRate = Vector3.zero;
-                Vector3 accel = default(Vector3);
+                var screenRotation = new Vector3(-90, 0, 90);
+                var rotationRate = Vector3.zero;
+                var accel = default(Vector3);
 
                 rotationRate = Input.gyro.rotationRate * Time.deltaTime;
                 head.Rotation = head.Rotation * Quaternion.Euler(-rotationRate.x, -rotationRate.y, rotationRate.z);
@@ -72,13 +61,13 @@ namespace VisrSdk
                 //perform orientation transform for landscape left
                 accel = new Vector3(-accel.x, accel.y, accel.z);
 
-                Vector3 pitchVector = Vector3.ProjectOnPlane(accel, Vector3.right).normalized;
-                Vector3 rollVector = Vector3.ProjectOnPlane(accel, Vector3.forward).normalized;
+                var pitchVector = Vector3.ProjectOnPlane(accel, Vector3.right).normalized;
+                var rollVector = Vector3.ProjectOnPlane(accel, Vector3.forward).normalized;
 
-                float pitch = Mathf.Atan2(-pitchVector.y, pitchVector.z) * Mathf.Rad2Deg;
-                float roll = Mathf.Atan2(rollVector.y, rollVector.x) * Mathf.Rad2Deg;
+                var pitch = Mathf.Atan2(-pitchVector.y, pitchVector.z) * Mathf.Rad2Deg;
+                var roll = Mathf.Atan2(rollVector.y, rollVector.x) * Mathf.Rad2Deg;
 
-                Quaternion rotation = Quaternion.Euler(new Vector3(pitch, head.Rotation.eulerAngles.y, roll) + screenRotation);
+                var rotation = Quaternion.Euler(new Vector3(pitch, head.Rotation.eulerAngles.y, roll) + screenRotation);
 
                 //This represents a basic complimentary filter, it's not good long term we should use a Kalman filter here [ld]
                 head.Rotation = Quaternion.Slerp(head.Rotation, rotation, 1.0F * Time.deltaTime);
@@ -97,19 +86,13 @@ namespace VisrSdk
 
             public override void UpdateTracking()
             {
-                updateHeadTracking();
+                UpdateHeadTracking();
             }
 
             public override TrackingNode GetTrackingNode(string name)
             {
                 TrackingNode node = null;
-
-                if (trackingNodes.TryGetValue(name, out node))
-                {
-                    return node;
-                }
-
-                return null;
+                return trackingNodes.TryGetValue(name, out node) ? node : null;
             }
 
             //Some Vicon Systems only have numeric tracking available
@@ -120,16 +103,16 @@ namespace VisrSdk
 
             public override TrackingNode CreateTrackingNode(string name)
             {
-                TrackingNode node = new TrackingNode();
+                var node = new TrackingNode();
                 trackingNodes[name] = node;
                 return node;
             }
 
             public override string[] GetTrackingNodeNames()
             {
-                string[] keys = new string[trackingNodes.Count];
+                var keys = new string[trackingNodes.Count];
+                var i = 0;
 
-                int i = 0;
                 foreach (var key in trackingNodes.Keys)
                 {
                     keys[i] = key;
