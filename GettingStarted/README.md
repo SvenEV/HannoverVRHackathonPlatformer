@@ -6,13 +6,14 @@ Detaillierte Schritte für Windows und macOS:
 ## Windows
 1. Download von [Visual Studio Community 2017](https://www.visualstudio.com/de/thank-you-downloading-visual-studio/?sku=Community&rel=15)
 1. Beim Setup die folgenden Workloads auswählen:
-    * **Game development with Unity**: Dies installiert nicht nur ein Unity-Plugin für Visual Studio, sondern auch die gesamte Unity Engine (dazu sicherstellen, dass unter _Summary_ "Unity 5.6 Editor" ausgewählt ist)
+    * **Game development with Unity**: Dies installiert nicht nur ein Unity-Plugin für Visual Studio, sondern auch die gesamte Unity Engine (dazu sicherstellen, dass unter _Summary_ "Unity 5.6 Editor" ausgewählt ist)  
     ![Required Unity components](unity_components.png)
-    * **_Für Android-Phones:_ Mobile Development with .NET**: Von den optionalen Komponenten werden nur das Android NDK, Android SDK und das JDK benötigt
+    * **_Für Android-Phones:_ Mobile Development with .NET**: Von den optionalen Komponenten werden nur das Android NDK, Android SDK und das JDK benötigt  
     ![Required components for Android phones](android_components.png)
-    * **_Für Windows-Phones:_ Universal Windows Platform development**: Keine der optionalen Komponenten werden benötigt
+    * **_Für Windows-Phones:_ Universal Windows Platform development**: Keine der optionalen Komponenten werden benötigt  
     ![Required components for Windows phones](uwp_components.png)
 
+So könnte also die Installation aussehen, wenn du ein Android-Phone hast:  
 ![Sample setup for Android phones](android_sample.png)
 
 ## macOS
